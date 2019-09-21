@@ -50,7 +50,6 @@ router.get("/:id", function (req, res) {
       res.render("error");
     else {
       res.redirect(shortenedUrl[0].url);
-      console.log(shortenedUrl[0].url);
     }
   });
 });
