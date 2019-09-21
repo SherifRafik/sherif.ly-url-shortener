@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-const URI = process.end.MONGO_URI || "mongodb://localhost/url-shortener";
+const URI = process.env.MONGO_URI || "mongodb://localhost/url-shortener";
 mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
