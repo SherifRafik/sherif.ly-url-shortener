@@ -12,6 +12,13 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+const URI = "mongodb://localhost/url-shortener";
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+
 app.use("/", require("./routes/index"));
 
 
