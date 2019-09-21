@@ -1,0 +1,26 @@
+{
+  "name": "sherif.ly-url-shortener",
+  "version": "1.0.0",
+  "description": "A Tool to shorten a long link",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SherifRafik/sherif.ly-url-shortener.git"
+  },
+  "author": "Sherif",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SherifRafik/sherif.ly-url-shortener/issues"
+  },
+  "homepage": "https://github.com/SherifRafik/sherif.ly-url-shortener#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "mongoose": "^5.7.1"
+  }
+}
