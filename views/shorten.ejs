@@ -1,0 +1,38 @@
+<% include ./partials/header.ejs %>
+
+<div>
+  <h3>Your shortened URL</h3>
+  <p class="mb-4">Copy the shortened link and share it in messages, texts, posts, websites and other locations.
+  </p>
+</div>
+
+<div>
+  <div class="input-group col-md-8 container">
+    <input type="text" class="form-control form-control-lg col-xs-12 " value="localhost:5000/<%= createdURL.id %>"
+      id="shortened-url">
+    <span class="input-group-btn">
+      <button id="copy-btn" onclick="copyURL()" class="btn btn-primary btn-lg">Copy URL</button>
+    </span>
+  </div>
+</div>
+
+<div class="mt-4">
+  <h5>Long URL : <a target="_blank" href="<%= createdURL.url %>"><%= createdURL.url %></a> </h5>
+  <p>Create other <a href="/">shortened urls</a></p>
+</div>
+
+<script>
+  function copyURL() {
+    /* Get the text field */
+    const copyText = document.getElementById("shortened-url");
+    const copyButton = document.getElementById("copy-btn");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+    copyButton.innerHTML = "URL Copied";
+  }
+</script>
+
+<% include ./partials/footer.ejs %>
