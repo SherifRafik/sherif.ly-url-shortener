@@ -12,8 +12,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.get("/", function (req, res) {
-  res.send("Hello from the index route");
-});
+app.use("/", require("./routes/index"));
+
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

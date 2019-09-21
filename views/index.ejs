@@ -1,0 +1,48 @@
+<% include ./partials/header.ejs %>
+
+<div class="text-center">
+  <h2>
+    Paste the URL to be shortened
+  </h2>
+</div>
+
+<form method="POST" action="/shorten" class="container col-md-8">
+  <div class="input-group ">
+    <input
+      type="text"
+      class="form-control form-control-lg  col-xs-12"
+      placeholder="Enter the link here"
+      name="url"
+    />
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-primary btn-lg">Shorten URL</button>
+    </span>
+  </div>
+</form>
+
+<section class="mt-3 text-center">
+  <p>
+    Sherif-ly is a free tool to shorten a URL or reduce a link. <br />
+    Use our URL Shortener to create a shortened link making it easy to remember.
+  </p>
+</section>
+
+<hr />
+
+<section>
+  <div>
+    <h2>Simple and fast URL shortener!</h2>
+    <p>
+      Sherif-ly allows to reduce a social network link, just paste the long URL
+      and click the Shorten URL button.
+    </p>
+
+    <h2>Shorten and Share!</h2>
+    <p>
+      Your shortened URLs can be used in publications, advertisements, blogs,
+      forums, e-mails, instant messages, and other locations.
+    </p>
+  </div>
+</section>
+
+<% include ./partials/footer.ejs %>
