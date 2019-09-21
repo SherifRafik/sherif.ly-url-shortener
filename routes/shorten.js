@@ -20,14 +20,26 @@ router.post("/shorten", function (req, res) {
       if (err)
         res.render("error");
       else {
-        res.render("shorten.ejs", {
-          createdURL: createdURL
-        });
+        res.redirect("/shorten/" + createdURL.id)
       }
     });
   } else {
     res.render("error");
   }
+});
+
+router.get("/shorten/:id", function (req, res) {
+  URL.find({
+    id: req.params.id
+  }, function (err, shortenedUrl) {
+    if (err)
+      res.render("error");
+    else {
+      res.render("shorten", {
+        createdURL: shortenedUrl[0]
+      });
+    }
+  });
 });
 
 router.get("/:id", function (req, res) {
