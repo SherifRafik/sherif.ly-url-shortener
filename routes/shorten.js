@@ -43,17 +43,13 @@ router.get("/shortened-url/:id", function (req, res) {
 });
 
 router.get("/:id", function (req, res) {
-  console.log("Ana hena" , req.params.id);
-  URL.find({id: req.params.id}, function(err, shortenedUrl){
-    if(err)
+  URL.find({
+    id: req.params.id
+  }, function (err, shortenedUrl) {
+    if (err || shortenedUrl.length == 0)
       res.render("error");
-    else {
-      if(shortenedUrl.length == 0){
-        res.render("error");
-      } else {
-        res.redirect(shortenedUrl[0].url);
-      }
-    }
+    else
+      res.redirect(shortenedUrl[0].url);
   });
 });
 
