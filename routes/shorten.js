@@ -48,7 +48,11 @@ router.get("/:id", function (req, res) {
     if(err)
       res.render("error");
     else {
-      res.redirect(shortenedUrl[0].url);
+      if(shortenedUrl.length == 0){
+        res.render("error");
+      } else {
+        res.redirect(shortenedUrl[0].url);
+      }
     }
   });
 });
