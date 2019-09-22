@@ -7,7 +7,7 @@ const schema = require("../models/validate");
 const generateId = require("../public/js/generate-id");
 
 
-router.post("/shorten", function (req, res) {
+router.post("/shorten-the-url", function (req, res) {
   const result = Joi.validate({
     url: req.body.url
   }, schema);
@@ -20,7 +20,7 @@ router.post("/shorten", function (req, res) {
       if (err)
         res.render("error");
       else {
-        res.redirect("/shorten/" + createdURL.id)
+        res.redirect("/shortened-url/" + createdURL.id)
       }
     });
   } else {
@@ -28,7 +28,7 @@ router.post("/shorten", function (req, res) {
   }
 });
 
-router.get("/shorten/:id", function (req, res) {
+router.get("/shortened-url/:id", function (req, res) {
   URL.find({
     id: req.params.id
   }, function (err, shortenedUrl) {
@@ -43,10 +43,9 @@ router.get("/shorten/:id", function (req, res) {
 });
 
 router.get("/:id", function (req, res) {
-  URL.find({
-    id: req.params.id
-  }, function (err, shortenedUrl) {
-    if (err)
+  console.log("Ana hena" , req.params.id);
+  URL.find({id: req.params.id}, function(err, shortenedUrl){
+    if(err)
       res.render("error");
     else {
       res.redirect(shortenedUrl[0].url);
